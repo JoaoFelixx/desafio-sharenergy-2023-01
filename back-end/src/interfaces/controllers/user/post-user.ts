@@ -7,9 +7,9 @@ interface CreateUserMethod {
 export const makePostUser = ({ addUser }: CreateUserMethod) =>
   async (request: HttpRequest, response: HttpResponse) => {
     try {
-      const store: User = request.body;
+      const user: User = request.body;
 
-      const result = await addUser(store);
+      const result = await addUser(user);
 
       if (result instanceof Error)
         return response.status(400).json(result.message);
