@@ -1,6 +1,9 @@
 import { createRouter } from '../../interfaces/express-adapters';
 import { middlewareJwt } from '../../interfaces/middleware';
-import { userController } from '../../interfaces/controllers';
+import {
+  userController,
+  clientController,
+} from '../../interfaces/controllers';
 
 const routes = createRouter();
 
@@ -9,4 +12,9 @@ routes.post('/users', userController.postUser);
 
 routes.use(middlewareJwt);
 
-export { routes }
+routes.get('/clients', clientController.getClient);
+routes.post('/clients', clientController.postClient);
+routes.put('/clients/:_id', clientController.putClient);
+routes.delete('/clients', clientController.deleteClient);
+
+export { routes };
