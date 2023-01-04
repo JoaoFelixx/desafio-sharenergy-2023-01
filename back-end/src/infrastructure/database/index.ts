@@ -3,8 +3,8 @@ import { mongoURL } from '../../secret';
 
 (async () => {
   try {
+    mongoose.set('strictQuery', false);
     await mongoose.connect(process.env.URL_MONGO || mongoURL);
-    console.log('Successful connection with DB')
   } catch (error) {
     return
   }
