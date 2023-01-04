@@ -1,9 +1,9 @@
+import { makeClient } from '../../domain/client'
 import { makeAddClient } from './add-client';
 import { makeEditClient } from './edit-client';
 import { makeFindClient } from './find-client';
-import { makeRemoveClient } from './remove-client';
-import { makeClient } from '../../domain/client'
 import { clientDB as db } from '../../interfaces/client/data-access';
+import { makeRemoveClient } from './remove-client';
 
 const addClient = makeAddClient({ makeClient, db });
 const editClient = makeEditClient({ makeClient, db })
