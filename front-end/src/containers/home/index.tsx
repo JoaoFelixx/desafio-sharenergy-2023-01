@@ -1,8 +1,14 @@
-export const Home = () => {
+import {
+  Navbar,
+  UsersList,
+  // UserPagination
+} from 'components';
 
+export const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Navbar />
+      <UsersList />
     </div>
   )
 }
