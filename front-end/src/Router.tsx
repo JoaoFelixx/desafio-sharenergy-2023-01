@@ -9,9 +9,8 @@ import {
   LoginPage,
   StatusCatPage,
   RandomDogPage,
-  RandomUserPage,
 } from 'pages';
-import { useSelectorAuth } from 'Context/AuthContext';
+import { useSelectorAuth } from 'Context/auth-context';
 
 interface PrivateRouteProps {
   path: string;
@@ -26,9 +25,9 @@ const Router = () => {
   const CustomRoutes = ({ path, isPrivate }: PrivateRouteProps) => ({
     '/': (isPrivate && authenticated) ? <HomePage /> : goLogin(),
     '/login': <LoginPage />,
+    '/clients': <div>Client</div>,
     '/status-cat': (isPrivate && authenticated) ? <StatusCatPage /> : goLogin(),
     '/random-dog': (isPrivate && authenticated) ? <RandomDogPage /> : goLogin(),
-    '/random-users': (isPrivate && authenticated) ? <RandomUserPage /> : goLogin(),
   }[path] || goLogin())
 
   return (
@@ -37,8 +36,9 @@ const Router = () => {
         <Route path="/" element={<CustomRoutes path="/" isPrivate />} />
         <Route path="/login" element={<CustomRoutes path="/login" />} />
         <Route path="/status-cat" element={<CustomRoutes path="/status-cat" isPrivate />} />
+        <Route path="/status-cat/:id" element={<CustomRoutes path="/status-cat" isPrivate />} />
         <Route path="/random-dog" element={<CustomRoutes path="/random-dog" isPrivate />} />
-        <Route path="/random-users" element={<CustomRoutes path="/random-users" isPrivate />} />
+        <Route path="/clients" element={<CustomRoutes path="/clients" isPrivate />} />
       </Routes>
     </BrowserRouter>
   )
