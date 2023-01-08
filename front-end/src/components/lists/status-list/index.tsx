@@ -1,9 +1,4 @@
-import React, { 
-	useState,
-	useEffect, 
-} from 'react';
-import { api } from 'services';
-import { toast } from 'react-toastify';
+import React from 'react';
 import { environments } from 'constants/environments';
 import { Link, useParams } from 'react-router-dom';
 import { Flex, Card, Status, Image, } from './style';
@@ -14,7 +9,6 @@ interface Index {
 
 export const StatusList = () => {
 	const { id } = useParams();
-	const [hasId, setHasId] = useState<boolean>(false);
 
 	const colors: Index =  {
 		'1': '#707070',
@@ -24,18 +18,9 @@ export const StatusList = () => {
 		'5': '#FF0000', 
 	}
 
-	useEffect(() => {
-		const hasIdAtArray = environments.statusCode.find((status) => status === Number(id));
-
-		if (hasIdAtArray)
-			setHasId(false)
-
-		setHasId(true)
-	}, [id])
-
 	return (
 		<Card>
-			{(id && hasId) && <Image src={`${environments.URL_HTTP_CAT+id}.jpg`} alt="Gatinho" />}
+			<Image src={`${environments.URL_HTTP_CAT+id}.jpg`} alt="Gatinho" />
 			<Flex>
 				{React.Children.toArray(
 					environments.statusCode.map((status) => {

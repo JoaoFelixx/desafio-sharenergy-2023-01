@@ -9,7 +9,7 @@ import {
   Content, 
   FullName, 
 } from './style';
-import { UserModal } from '../../modals'
+import { Modal } from '../../modal'
 
 export const UsersList = () => {
   const { users } = useSelectorApi();
@@ -17,12 +17,12 @@ export const UsersList = () => {
 
   return (
     <Card>
-      <UserModal isVisible={isVisible} setIsVisible={setIsVisible}>
+      <Modal isVisible={isVisible} setIsVisible={setIsVisible}>
         <form>
           <label>Filtro</label>
           <input />
         </form>
-      </UserModal>
+      </Modal>
       <div className="bg-white">
         <GrFilter onClick={() => setIsVisible(true)}/>
         <h2 className="sr-only">Usuários</h2>
