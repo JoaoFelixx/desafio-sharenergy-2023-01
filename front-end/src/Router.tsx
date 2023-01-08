@@ -7,6 +7,7 @@ import {
 import {
   HomePage,
   LoginPage,
+  ClientsPage,
   StatusCatPage,
   RandomDogPage,
 } from 'pages';
@@ -25,7 +26,7 @@ const Router = () => {
   const CustomRoutes = ({ path, isPrivate }: PrivateRouteProps) => ({
     '/': (isPrivate && authenticated) ? <HomePage /> : goLogin(),
     '/login': <LoginPage />,
-    '/clients': <div>Client</div>,
+    '/clients': <ClientsPage />,
     '/status-cat': (isPrivate && authenticated) ? <StatusCatPage /> : goLogin(),
     '/random-dog': (isPrivate && authenticated) ? <RandomDogPage /> : goLogin(),
   }[path] || goLogin())
