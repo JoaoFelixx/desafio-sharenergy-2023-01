@@ -28,7 +28,7 @@ export default function useAuth(): AuthParams {
   const verifyAccess = useCallback((): void => {
     const result = localStorage.getItem('token_SHARENERGY');
 
-    const token: string | boolean = !!result ? JSON.parse(result) : false;
+    const token: string = JSON.parse(result+"");
 
     if (!token)
       return
@@ -58,8 +58,9 @@ export default function useAuth(): AuthParams {
   }
 
   useEffect(() => {
-    if (authenticated)
+    if (authenticated && '/login' !== window.location.pathname) {
       return
+    }
 
     verifyAccess();
 
