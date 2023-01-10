@@ -14,7 +14,11 @@ export const makePostClient = ({ addClient }: CreateClientMethod) =>
       if (result instanceof Error)
         return response.status(400).json(result.message);
 
-      response.status(201).json(result);
+      const {
+        _id, address, cpf, email, name, phone_number
+      } = result;
+
+      response.status(201).json({ _id, address, cpf, email, name, phone_number });
 
     } catch (error) {
       return new Error('Error post client');
