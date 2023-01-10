@@ -38,7 +38,7 @@ const Th = styled.th`
   border: 1px solid #000;
   text-align: left;
   padding: 0.4em;
-  background-color: #D40241;
+  background-color: #1F2937;
   color: #fff;
   font-weight: bold;
   font-size: 1.4em;
