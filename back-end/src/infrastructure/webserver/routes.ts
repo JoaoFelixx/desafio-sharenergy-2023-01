@@ -15,6 +15,6 @@ routes.use(middlewareJwt);
 routes.get('/clients', clientController.getClient);
 routes.post('/clients', clientController.postClient);
 routes.put('/clients/:_id', clientController.putClient);
-routes.delete('/clients', clientController.deleteClient);
+routes.delete('/clients/:_id', clientController.deleteClient);
 
 export { routes };
